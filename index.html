@@ -13,13 +13,30 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="loader-screen" id="loader-screen" aria-hidden="true">
+      <div class="loader-logo">
+        <img src="Photos/Logo.jpg" alt="Brand Logo" />
+      </div>
+      <div class="loader-text">LOADING PORTFOLIO</div>
+      <div class="loader-bar">
+        <span></span>
+      </div>
+    </div>
+
+    <div class="cursor" id="cursor-dot" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true">
+      <span class="art art-line"></span>
+      <span class="art art-triangle"></span>
+      <span class="art art-ruler"></span>
+    </div>
+
     <header class="site-header">
       <div class="container nav-bar">
         <div class="brand">
-          <span class="brand-icon brand-logo" aria-label="Brand logo image placeholder">
-            <img src="photos/logo" alt="Brand Logo" />
-          </span>
-          Your Name
+          <div class="brand-logo" aria-label="Brand logo image placeholder">
+            <img src="Photos/Logo.jpg" alt="Brand Logo" />
+          </div>
+          <span class="brand-name">Your Name</span>
         </div>
         <nav class="nav-links">
           <a href="#abstract">Abstract</a>
