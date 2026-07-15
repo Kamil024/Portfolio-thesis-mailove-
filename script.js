@@ -20,6 +20,44 @@ hoverTargets.forEach((target) => {
   target.addEventListener('mouseleave', () => cursor.classList.remove('is-hovering'));
 });
 
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+const lightboxClose = document.getElementById('lightbox-close');
+
+const openLightbox = (image) => {
+  lightboxImage.src = image.src;
+  lightboxImage.alt = image.alt;
+  lightbox.classList.add('visible');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('lightbox-open');
+  cursor.classList.add('is-lightbox');
+};
+
+const closeLightbox = () => {
+  lightbox.classList.remove('visible');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('lightbox-open');
+  cursor.classList.remove('is-lightbox');
+  cursor.classList.remove('is-hovering');
+};
+
+document.querySelectorAll('.showcase-placeholder img').forEach((image) => {
+  image.addEventListener('click', () => openLightbox(image));
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (event) => {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeLightbox();
+  }
+});
+
 const revealElements = document.querySelectorAll('.section, .hero-card, .info-card, .showcase-card, .contributors-block, .timeline-item');
 
 const revealObserver = new IntersectionObserver(

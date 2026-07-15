@@ -12,18 +12,22 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body id="top">
     <div class="loader-screen" id="loader-screen" aria-hidden="true">
       <div class="loader-logo">
         <img src="Photos/Logo.jpg" alt="Brand Logo" />
       </div>
-      <div class="loader-text">LOADING PORTFOLIO</div>
+      <div class="loader-text">LOADING</div>
       <div class="loader-bar">
         <span></span>
       </div>
     </div>
 
     <div class="cursor" id="cursor-dot" aria-hidden="true"></div>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close preview">×</button>
+      <img id="lightbox-image" src="" alt="" />
+    </div>
     <div class="bg-grid" aria-hidden="true">
       <span class="art art-line"></span>
       <span class="art art-triangle"></span>
@@ -33,10 +37,16 @@
     <header class="site-header">
       <div class="container nav-bar">
         <div class="brand">
-          <div class="brand-logo" aria-label="Brand logo image placeholder">
-            <img src="Photos/Logo.jpg" alt="Brand Logo" />
-          </div>
-          <span class="brand-name">Your Name</span>
+          <a class="brand-logo" href="#top" aria-label="Back to top">
+            <span class="brand-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 10.5 12 3l9 7.5"></path>
+                <path d="M5.5 9.8V21h13V9.8"></path>
+                <path d="M10 21v-6h4v6"></path>
+              </svg>
+            </span>
+          </a>
+          <span class="brand-name">Home</span>
         </div>
         <nav class="nav-links">
           <a href="#abstract">Abstract</a>
@@ -58,25 +68,24 @@
               </svg>
             </div>
             <p class="eyebrow">Master's Thesis Portfolio</p>
-            <h1>Smart Solutions for <span>Meaningful Research</span></h1>
+            <h1><span>Transforming Spaces:</span> Designing a Multi-Purpose Arena (CHMSU PRISM)</h1>
             <p class="hero-copy">
               This portfolio introduces your thesis, outlines your research process,
               and highlights the outcomes of your academic work.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#abstract">Explore Thesis</a>
+              <a class="btn btn-primary" href="#abstract">Explore More</a>
               <a class="btn btn-secondary" href="#contact">Get in Touch</a>
             </div>
           </div>
 
-          <div class="hero-card">
+          <div class="hero-card hero-snapshot">
             <h2>Thesis Snapshot</h2>
             <ul>
-              <li><strong>Title:</strong> Your Thesis Title</li>
-              <li><strong>Field:</strong> Computer Science / Data Science / Engineering</li>
+              <li><strong>Course/Program:</strong> BS Industrial Technology Major in Architectural Drafting</li>
               <li><strong>Contributors:</strong> 6 Members</li>
-              <li><strong>Supervisor:</strong> Prof. Name</li>
-              <li><strong>Status:</strong> In Progress / Completed</li>
+              <li><strong>Adviser:</strong> Dr. Federico V. Denisa Jr.</li>
+              <li><strong>Status:</strong> Completed / Thesis Portfolio</li>
             </ul>
           </div>
         </div>
@@ -90,10 +99,7 @@
           </div>
           <div>
             <p>
-              This thesis explores a problem, proposes a novel solution, and evaluates
-              its impact using a structured research methodology. The project combines
-              theoretical analysis with practical implementation to demonstrate clear,
-              evidence-based outcomes.
+              This study focuses on the design and planning of the CHMSU Prism Arena at Carlos Hilado Memorial State University – Alijis, addressing the need for multi-purpose facilities to enhance student engagement and community activities. Aligned with institutional goals and the United Nations Sustainable Development Goals, the four-storey arena features sustainable architecture, incorporating energy-efficient systems, water conservation, locally sourced sustainable materials, accessibility, and flexible multi-functional spaces. It aims to support various functions and generate income through partnerships and venue rentals, embodying a sustainable, student-centered infrastructure that fosters environmental responsibility and holistic development on campus.
             </p>
           </div>
         </div>
@@ -107,28 +113,65 @@
             <article class="info-card">
               <h3>Research Problem</h3>
               <p>
-                Describe the key issue your thesis addresses, why it matters, and
-                what gap currently exists in the literature or practice.
+                The study addresses the need for a multi-purpose arena that can support student engagement, campus activities, and community functions while aligning with sustainable development goals and institutional goals.
               </p>
             </article>
             <article class="info-card">
               <h3>Objectives</h3>
-              <p>
-                State your main objectives clearly: what your study aims to design,
-                analyze, improve, or validate.
-              </p>
+              <ol class="objective-list">
+                <li>Design a four-storey multi-purpose arena.</li>
+                <li>Prepare architectural visualization:
+                  <ol class="objective-sublist">
+                    <li>Architectural storyboard</li>
+                    <li>Walk-through (3D) presentation</li>
+                  </ol>
+                </li>
+                <li>Produce an Architectural Set of Plan:
+                  <ol class="objective-sublist">
+                    <li>Building Perspectives (Interior and Exterior)</li>
+                    <li>Floor Plan (Ground to Fourth)</li>
+                    <li>Elevations</li>
+                    <li>Sections</li>
+                  </ol>
+                </li>
+                <li>Determine its acceptability test in terms of site location, design consideration, function, aesthetic, green design and sustainability, and budget.</li>
+              </ol>
             </article>
             <article class="info-card">
               <h3>Methodology</h3>
               <p>
-                Mention your research strategy, tools, datasets, experiments, or
-                model development process.
+                The research involved architectural design development, visualization, planning, and evaluation of the proposed multi-purpose arena through technical drawing and acceptability assessment.
               </p>
             </article>
           </div>
           <div class="contributors-block">
-            <h3>Contributors</h3>
-            <p>6 contributors in total, collaborating across research, design, data analysis, and implementation.</p>
+            <h3>Researchers</h3>
+            <div class="researcher-grid">
+              <figure class="researcher-card">
+                <img src="Photos/Betita.jpg" alt="Betita, Abegail E." />
+                <figcaption>Betita, Abegail E.</figcaption>
+              </figure>
+              <figure class="researcher-card">
+                <img src="Photos/Diaboco.jpg" alt="Diaboco, Jance C." />
+                <figcaption>Diaboco, Jance C.</figcaption>
+              </figure>
+              <figure class="researcher-card">
+                <img src="Photos/Jalandoni,.jpg" alt="Jalandoni, Mark Vincent M." />
+                <figcaption>Jalandoni, Mark Vincent M.</figcaption>
+              </figure>
+              <figure class="researcher-card">
+                <img src="Photos/Macapobre.jpg" alt="Macapobre, Mai Love G." />
+                <figcaption>Macapobre, Mai Love G.</figcaption>
+              </figure>
+              <figure class="researcher-card">
+                <img src="Photos/Purisima.jpg" alt="Purisima, Jery Mae B." />
+                <figcaption>Purisima, Jery Mae B.</figcaption>
+              </figure>
+              <figure class="researcher-card">
+                <img src="Photos/Ybañez.jpg" alt="Ybañez, Renier V." />
+                <figcaption>Ybañez, Renier V.</figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </section>
@@ -141,22 +184,10 @@
             <div class="timeline-item">
               <span class="dot"></span>
               <div>
-                <h3>Contribution 1</h3>
-                <p>Summarize the main practical or theoretical contribution of your work.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="dot"></span>
-              <div>
-                <h3>Contribution 2</h3>
-                <p>Highlight your methodology, advanced analysis, or implementation result.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="dot"></span>
-              <div>
-                <h3>Contribution 3</h3>
-                <p>Describe the significance of your result for future research or development.</p>
+                <h3>Main Contribution</h3>
+                <p>
+                  This study presents a complete, sustainable architectural design for the proposed four-storey CHMSU Prism Arena at Carlos Hilado Memorial State University–Alijis, establishing a blueprint that boosts student engagement, aligns with UN Sustainable Development Goals, and generates revenue through community rentals. Utilizing a descriptive-developmental research design, the project integrated environmental site analyses with feedback from licensed industry experts, earning "Acceptable" to "Highly Acceptable" ratings for its blueprints, 3D walkthroughs, and sustainability metrics. Notably, the design incorporates a 100kW solar power system projected to save ₱420,000 monthly, recovering its ₱4,500,000 initial cost in just 1.1 years. Ultimately, this project delivers the crucial technical data and visual layouts needed for immediate structural engineering and campus master planning, while serving as a practical model for future eco-friendly, socially inclusive academic infrastructure.
+                </p>
               </div>
             </div>
           </div>
@@ -169,20 +200,34 @@
           <h2>Photo Gallery</h2>
           <div class="showcase-grid">
             <div class="showcase-card">
-              <div class="showcase-placeholder">Add your Photo / Draft / Concept Plate</div>
-              <p>Use this area for your design image, drawing sheet, or final project visual.</p>
+              <div class="showcase-placeholder image-placeholder"><img src="Photos/1.jpg" alt="Portfolio photo 1" /></div>
             </div>
             <div class="showcase-card">
-              <div class="showcase-placeholder">Add your Photo / Draft / Concept Plate</div>
-              <p>Use this area for another design image, sketch, or presentation spread.</p>
+              <div class="showcase-placeholder image-placeholder"><img src="Photos/2.jpg" alt="Portfolio photo 2" /></div>
             </div>
             <div class="showcase-card">
-              <div class="showcase-placeholder">Add your Photo / Draft / Concept Plate</div>
-              <p>Use this area for additional visual material from your portfolio.</p>
+              <div class="showcase-placeholder image-placeholder"><img src="Photos/3.jpg" alt="Portfolio photo 3" /></div>
             </div>
             <div class="showcase-card">
-              <div class="showcase-placeholder">Add your Photo / Draft / Concept Plate</div>
-              <p>Use this area for another image or work sample from your portfolio.</p>
+              <div class="showcase-placeholder image-placeholder"><img src="Photos/4.jpg" alt="Portfolio photo 4" /></div>
+            </div>
+            <div class="showcase-card">
+              <div class="showcase-placeholder image-placeholder"><img src="Photos/5.jpg" alt="Portfolio photo 5" /></div>
+            </div>
+            <div class="showcase-card">
+              <div class="showcase-placeholder image-placeholder"><img src="Photos/6.jpg" alt="Portfolio photo 6" /></div>
+            </div>
+            <div class="showcase-card">
+              <div class="showcase-placeholder image-placeholder"><img src="Photos/7.jpg" alt="Portfolio photo 7" /></div>
+            </div>
+            <div class="showcase-card">
+              <div class="showcase-placeholder image-placeholder"><img src="Photos/8.jpg" alt="Portfolio photo 8" /></div>
+            </div>
+            <div class="showcase-card">
+              <div class="showcase-placeholder image-placeholder"><img src="Photos/9.jpg" alt="Portfolio photo 9" /></div>
+            </div>
+            <div class="showcase-card">
+              <div class="showcase-placeholder image-placeholder"><img src="Photos/10.jpg" alt="Portfolio photo 10" /></div>
             </div>
           </div>
         </div>
@@ -192,31 +237,18 @@
         <div class="container">
           <p class="section-tag">Media</p>
           <h2>Video Gallery</h2>
-          <div class="showcase-grid video-grid">
-            <div class="showcase-card">
-              <div class="showcase-placeholder video-placeholder">Add your Video / Presentation Reel</div>
-              <p>Use this space for a walkthrough, concept video, or process reel.</p>
+          <div class="showcase-grid video-grid featured-video-grid">
+            <div class="showcase-card featured-video-card">
+              <div class="showcase-placeholder video-placeholder featured-video-placeholder">
+                <iframe
+                  src="https://www.youtube.com/embed/KHgq-vIvC7g?rel=0"
+                  title="CHMSU Prism walkthrough video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <p>Walkthrough / presentation reel for the CHMSU Prism project.</p>
             </div>
-            <div class="showcase-card">
-              <div class="showcase-placeholder video-placeholder">Add your Video / Presentation Reel</div>
-              <p>Use this space for another project video or explanation clip.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt-section">
-        <div class="container two-col">
-          <div>
-            <p class="section-tag">Impact</p>
-            <h2>Why This Work Matters</h2>
-          </div>
-          <div>
-            <p>
-              Explain how your work improves understanding, solves a real issue, or
-              contributes to your academic discipline. A short impact paragraph helps
-              the viewer quickly see the relevance of your thesis.
-            </p>
           </div>
         </div>
       </section>
@@ -227,13 +259,16 @@
             <p class="section-tag">Contact</p>
             <h2>Let’s connect</h2>
             <p>
-              Replace this text with your email, LinkedIn, GitHub, or institutional profile.
+              Reach out for collaborations, inquiries, or discussions about the CHMSU PRISM Arena design project.
             </p>
           </div>
           <div class="contact-links">
-            <a href="mailto:your.email@example.com">your.email@example.com</a>
-            <a href="https://www.linkedin.com/">LinkedIn</a>
-            <a href="https://github.com/">GitHub</a>
+            <a href="mailto:macapobremai@gmail.com">macapobremai@gmail.com</a>
+            <a href="mailto:markvince10jalandoni@gmail.com">markvince10jalandoni@gmail.com</a>
+            <a href="mailto:abegailbetita59@gmail.com">abegailbetita59@gmail.com</a>
+            <a href="mailto:purisimajerymae@gmail.com">purisimajerymae@gmail.com</a>
+            <a href="mailto:renierybanez82@gmail.com">renierybanez82@gmail.com</a>
+            <a href="mailto:jancediaboco208@gmail.com">jancediaboco208@gmail.com</a>
           </div>
         </div>
       </section>
@@ -241,7 +276,7 @@
 
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> Your Name. All rights reserved.</p>
+        <p>© <span id="year"></span> Jayson. All rights reserved.</p>
       </div>
     </footer>
 
