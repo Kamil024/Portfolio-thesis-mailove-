@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://yourusername.github.io/Mai_love_thesis/",
+  "homepage": "https://kamil024.github.io/Portfolio-thesis-mailove-/",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
