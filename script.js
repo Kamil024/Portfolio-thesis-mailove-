@@ -1,11 +1,23 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
-const loaderScreen = document.getElementById('loader-screen');
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    loaderScreen.classList.add('hidden');
-  }, 1400);
-});
+const photoGallery = document.getElementById('photo-gallery');
+if (photoGallery) {
+  for (let i = 1; i <= 26; i += 1) {
+    const card = document.createElement('div');
+    card.className = 'showcase-card';
+
+    const placeholder = document.createElement('div');
+    placeholder.className = 'showcase-placeholder image-placeholder';
+
+    const image = document.createElement('img');
+    image.src = `Photos/${i}.png`;
+    image.alt = `Portfolio photo ${i}`;
+
+    placeholder.appendChild(image);
+    card.appendChild(placeholder);
+    photoGallery.appendChild(card);
+  }
+}
 
 const cursor = document.getElementById('cursor-dot');
 
@@ -23,8 +35,13 @@ hoverTargets.forEach((target) => {
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightbox-image');
 const lightboxClose = document.getElementById('lightbox-close');
+const galleryImages = () => Array.from(document.querySelectorAll('.showcase-placeholder img'));
+let currentLightboxIndex = -1;
 
 const openLightbox = (image) => {
+  const images = galleryImages();
+  currentLightboxIndex = images.indexOf(image);
+
   lightboxImage.src = image.src;
   lightboxImage.alt = image.alt;
   lightbox.classList.add('visible');
@@ -39,11 +56,31 @@ const closeLightbox = () => {
   document.body.classList.remove('lightbox-open');
   cursor.classList.remove('is-lightbox');
   cursor.classList.remove('is-hovering');
+  currentLightboxIndex = -1;
 };
 
-document.querySelectorAll('.showcase-placeholder img').forEach((image) => {
-  image.addEventListener('click', () => openLightbox(image));
-});
+const navigateLightbox = (direction) => {
+  if (!lightbox.classList.contains('visible')) return;
+
+  const images = galleryImages();
+  if (!images.length) return;
+
+  if (currentLightboxIndex === -1) {
+    currentLightboxIndex = 0;
+  }
+
+  const nextIndex = (currentLightboxIndex + direction + images.length) % images.length;
+  currentLightboxIndex = nextIndex;
+  openLightbox(images[nextIndex]);
+};
+
+const bindGalleryImages = () => {
+  galleryImages().forEach((image) => {
+    image.addEventListener('click', () => openLightbox(image));
+  });
+};
+
+bindGalleryImages();
 
 lightboxClose.addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', (event) => {
@@ -52,9 +89,20 @@ lightbox.addEventListener('click', (event) => {
   }
 });
 
-document.addEventListener('keydown', (event) => {
+window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     closeLightbox();
+    return;
+  }
+
+  if (!lightbox.classList.contains('visible')) return;
+
+  if (event.key === 'ArrowRight') {
+    navigateLightbox(1);
+  }
+
+  if (event.key === 'ArrowLeft') {
+    navigateLightbox(-1);
   }
 });
 
